@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load staticfiles %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Pfenei : Portfolio</title>
+    <link href="{% static 'jobs/css/bootstrap.min.css' %}" rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link href="{% static 'jobs/css/w95.css' %}" rel="stylesheet">
+    <link href="{% static 'jobs/css/style.css' %}" rel="stylesheet">
+
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-secondary justify-content-between mb-3">
+        <div class="navbarimg"><img src="{% static 'jobs/img/favicon/favicon-32x32.png' %}" alt="navbaricon">  Pfenei</div>
+        <ul class="navbar-nav navbar-nav-hover flex-row align-items-center">
+            <li class="nav-item">
+                <a class="nav-link" role="button" href="{% url 'home' %}"><span
+                        class="nav-link-inner-text">About</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" role="button" href="{% url 'projects' %}"><span
+                        class="nav-link-inner-text">Portfolio</span></a>
+            </li>
+        </ul>
+        <div class="time text-center">
+            <span class="time text-uppercase">00:00 PM</span>
+        </div>
+    </nav>
+</header>
+<div class=" card text-center projectintro">
+    <h2 class="projectsh2">These are my past and current projects:</h2>
+    <div class="row projectsrow">
+        <div class="col-lg-4 projectscol">
+        <h4 class="text-center">Games: </h4>
+            <div class="projectscrollmenu">
+                {% for gamejob in gamejobs %}
+                <div class="projectcard">
+                    <div class="card card-secondary">
+                        <div class="card-header text-center">
+                            <span class="icon icon-xs w95-window-empty"></span>
+                            <h5><a href="{{ gamejob.url }}" target="_blank">{{ gamejob.title }}</a></h5>
+                        </div>
+                        <div class="card-body">
+                            <img class="projectimg" src="{{ gamejob.imageurl }}" alt="job-image">
+                            <ul class="projectdescription">
+                                <li> <span class="lead">Created by: </span>{{ gamejob.authors }}</li>
+                                <li> <span class="lead">Language/Frameworks: </span>{{ gamejob.mainframework }}{{ gamejob.subframework }}</li>
+                                <li> <span class="lead">Release Date: </span>{{ gamejob.date }} </li>
+                                <li> <span class="lead">Snippet: </span>{{ gamejob.description }} </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+        <div class="col-lg-4 projectscol">
+        <h4 class="text-center">Web(Apps): </h4>
+            <div class="projectscrollmenu">
+                {% for webjob in webjobs.all %}
+                <div class="projectcard">
+                    <div class="card card-secondary">
+                        <div class="card-header text-center">
+                            <span class="icon icon-xs w95-window-empty"></span>
+                            <h5><a href="{{ webjob.url }}" target="_blank">{{ webjob.title }}</a></h5>
+                        </div>
+                        <div class="card-body">
+                            <img class="projectimg" src="{{ webjob.imageurl }}" alt="job-image">
+                            <ul class="projectdescription">
+                                <li><span class="lead">Created by: </span>{{ webjob.authors }}</li>
+                                <li><span class="lead">Language/Frameworks </span>{{ webjob.mainframework }}{{ webjob.subframework }}</li>
+                                <li><span class="lead">Release Date: </span>{{ webjob.date }} </li>
+                                <li><span class="lead">Snippet: </span>{{ webjob.description }} </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+        <div class="col-lg-4 projectscol ">
+        <h4 class="text-center">School Projects: </h4>
+            <div class="projectscrollmenu">
+                {% for schoolproject in schoolprojects.all %}
+                <div class="projectcard">
+                    <div class="card card-secondary">
+                        <div class="card-header text-center">
+                            <span class="icon icon-xs w95-window-empty"></span>
+                            <h5 class="schoolprojectname"><a href="{{ schoolproject.url }}"
+                                                             target="_blank">{{ schoolproject.title }}</a>
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <img class="projectimg" src="{{ schoolproject.imageurl }}" alt="job-image">
+                            <ul class="projectdescription">
+                                <li><span class="lead">Created by: </span>{{ schoolproject.authors }}</li>
+                                <li><span class="lead">Language/Frameworks: </span>{{ schoolproject.mainframework }} {{ schoolproject.subframework }}</li>
+                                <li><span class="lead">Release Date: </span>{{ schoolproject.date }} </li>
+                                <li><span class="lead">Snippet: </span>{{ schoolproject.description }} </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="{% static 'jobs/jquery-3.6.0.min.js' %}"></script>
+<script src="{% static 'jobs/js/bootstrap.bundle.js' %}"></script>
+<script src="{% static 'jobs/js/w95.js' %}"></script>
+<script src="{% static 'jobs/js/site.js' %}"></script>
+</body>
+</html>

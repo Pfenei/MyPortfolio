@@ -1,0 +1,133 @@
+.center {
+    margin: auto;
+    width: 60%;
+    padding: 10px;
+}
+
+body {
+    background-color: #00014e;
+}
+
+.navbarimg {
+    margin-left: 5px;
+    margin-right: -10px;
+}
+
+.introcontainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.center {
+    width: 80% !important;
+}
+
+.time-text {
+    color: white !important;
+}
+
+.introimg {
+    width: 200px;
+}
+
+.projectintro {
+    margin-top: 50px;
+}
+
+.my-img {
+    max-width: 100%;
+    border: 2px solid black
+}
+.introcard {
+    line-height: 25px;
+}
+.think{
+    font-weight: bold;
+}
+.intromaintext {
+    margin-top: 10px !important;
+    margin-bottom: .25rem !important;
+}
+
+.introsubtext {
+    font-size: small;
+}
+
+.projectdescription {
+    padding-left: 0px;
+    list-style-type: none;
+}
+
+.projectsh2 {
+    margin-top: 25px;
+}
+
+.projectscrollmenu {
+    max-height: 600px;
+    overflow-y: auto !important;
+    background-color: #838383;
+    padding: 10px;
+    border: 2px solid black;
+}
+.projectsrow{
+    margin-left: 0px!important;
+    margin-right: 0px!important;
+}
+.projectscol {
+    margin-top: 50px;
+}
+
+.projectimg {
+    max-width: 100%;
+    height: auto;
+}
+
+.projectcard {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 15px;
+}
+
+.schoolprojectname {
+    line-height: 30px;
+}
+
+.introcardrow {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+.projectscontainer {
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.formationcard {
+    max-height: 330px !important;
+    overflow-y: auto !important;
+}
+
+.formationp {
+    margin-bottom: 5px !important;
+}
+
+.formationcolumn {
+    max-width: 600px;
+}
+
+.contactbtns {
+    margin-top: 10px;
+}
+
+.navbar {
+    padding: 0 !important;
+}
+
+.btn {
+    max-height: 50px !important;
+}
+
+.col-lg-2 {
+    padding: 0 !important;
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pfenei : About</title>
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+<body>
+<header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand text-dark" href="{% url 'home' %}">Pfenei.cs</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="{% url 'home' %}">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="{% url 'projects' %}">Portfolio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark active" href="{% url 'contact' %}">Contact</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+<div class="container home-info rounded text-center">
+    <h3>Where to find me</h3>
+<ul>
+    <li><a href="https://www.instagram.com/pfenei.cs/" target="_blank">Dev Instagram</a> : <a href="https://www.instagram.com/pfenei/" target="_blank">Personal Instagram</a></li>
+    <li><a href="https://www.linkedin.com/in/adrian-sanchez-b8b212139/gu" target="_blank">LinkedIn</a></li>
+    <li><a href="https://github.com/Pfenei" target="_blank">Github</a></li>
+    <li><a href="https://stackexchange.com/users/20170520/pfenei" target="_blank">StackOverflow</a></li>
+    <li><a href="https://steamcommunity.com/id/Anthraxito/" target="_blank">Steam</a></li>
+</ul>
+</div>
+<footer class="footer text-muted">
+        <div class="container">
+            2021 - PfeneiPortfolio.Website
+        </div>
+</footer>
+<script src="{% static 'jquery-3.6.0.min.js' %}"></script>
+<script src="{% static 'popper.js' %}"></script>
+<script src="{% static 'js/bootstrap.bundle.js' %}"></script>
+<script src="{% static 'js/site.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Pfenei : About</title>
+    <link href="{% static 'jobs/css/bootstrap.min.css' %}" rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link href="{% static 'jobs/css/w95.css' %}" rel="stylesheet">
+    <link href="{% static 'jobs/css/style.css' %}" rel="stylesheet">
+
+</head>
+<body>
+
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-secondary justify-content-between mb-3">
+        <div class="navbarimg"><img src="{% static 'jobs/img/favicon/favicon-32x32.png' %}" alt="navbaricon"> Pfenei
+        </div>
+        <ul class="navbar-nav navbar-nav-hover flex-row align-items-center">
+            <li class="nav-item">
+                <a id="aboutbutton" class="nav-link" role="button" onclick="about()"><span
+                        class="nav-link-inner-text">About</span></a>
+            </li>
+            <li class="nav-item">
+                <a id="portfoliobutton" class="nav-link" role="button" onclick="portfolio()"><span
+                        class="nav-link-inner-text">Portfolio</span></a>
+            </li>
+        </ul>
+        <div class="time text-center">
+            <span class="time text-uppercase">00:00 PM</span>
+        </div>
+    </nav>
+</header>
+
+<div id="about">
+    <div class="col-12 col-lg-6 mb-4 mb-lg-5 text-center center">
+        <div class="card card-secondary">
+            <div class="card-header text-center">
+                <span class="icon icon-xs w95-window-empty"></span>
+                <h6 class="intromaintext">Hola! I'm Adri,</h6>
+                <p class="introsubtext">an Edinburgh-based Developer.</p>
+            </div>
+            <div class="card-body introcontainer row introcardrow">
+                <div class="introimg card-img col-lg-2 align-items-center"><img class="my-img "
+                                                                                src="{% static 'jobs/me.jpg' %}"
+                                                                                alt="me">
+                </div>
+                <div class="introtext card-text col-lg-10">
+                    <h6 class="introh6">I started nurturing my passion for computers and games in general
+                        when I was very little, but never
+                        decided
+                        to take part in development until recently.
+                        After some trial and error in university back in spain and moving to the UK, I started Software
+                        Development
+                        in college and realised how strong my bond with technology is.</h6>
+                    <h6 class="introh6">Soon after learning some basic C#, I started trying different frameworks and
+                        work environments to
+                        test
+                        what
+                        sparked my passion the most.
+                        Currently focused on getting fluent in C# and learning ASP.NET and Unity along other scripting
+                        and
+                        programming languages in the background.</h6>
+                        <h6>Feel free to drop me an email (adrsanrod2@gmail.com), chat with me on discord (Pfenei Knov#0404) or contact me in any of the other accounts below:</h6>
+                </div>
+                <div class="contactbtns row">
+                    <div class="col-lg-3">
+                        <a class="btn mr-2 mb-2 btn-sm btn-info text-black" href="https://www.instagram.com/pfenei.cs/"
+                           target="_blank">Instagram</a>
+                    </div>
+                    <div class="col-lg-2">
+                        <a class="btn mr-2 mb-2 btn-sm btn-info text-black"
+                           href="https://www.linkedin.com/in/adrian-sanchez-b8b212139/gu" target="_blank">LinkedIn</a>
+                    </div>
+                    <div class="col-lg-2">
+                        <a class="btn mr-2 mb-2 btn-sm btn-info text-black" href="https://github.com/Pfenei"
+                           target="_blank">Github</a>
+                    </div>
+                    <div class="col-lg-2">
+                        <a class="btn mr-2 mb-2 btn-sm btn-info text-black"
+                           href="https://stackexchange.com/users/20170520/pfenei"
+                           target="_blank">StackOverflow</a>
+                    </div>
+                    <div class="col-lg-3">
+                        <a class="btn mr-2 mb-2 btn-sm btn-info text-black"
+                           href="https://steamcommunity.com/id/Anthraxito/"
+                           target="_blank">Steam</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="formationinfo row introcardrow justify-content-center text-center">
+        <div class="col-lg-4 formationcolumn">
+            <div class="card card-tertiary">
+                <div class="card-header text-center">
+                    Education:
+                </div>
+                <div class="card-body formationcard">
+                    {% for study in studies.all %}
+                        <div class="card-text bg-white">
+                            <p class="formationp">{{ study.description }}</p>
+                            <p class="formationp">{{ study.name }} - {{ study.city }}</p>
+                            <p class="formationp">{{ study.startDate }} - {{ study.endDate }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 formationcolumn">
+            <div class="card card-tertiary">
+                <div class="card-header text-center">
+                    Courses:
+                </div>
+                <div class="card-body formationcard">
+                    {% for course in courses.all %}
+                        <div class="card-text bg-white">
+                            <p class="formationp"><a href="{{ course.url }}" target="_blank">{{ course.name }}</a>
+                                - {{ course.platform }}</p>
+                            <p class="formationp">By: {{ course.authors }}</p>
+                            <p class="formationp">Completed on : {{ course.completionDate }}{{ study.startDate }}
+                                - {{ study.endDate }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 formationcolumn">
+            <div class="card card-tertiary">
+                <div class="card-header text-center">
+                    Skills:
+                </div>
+                <div class="card-body">
+                    {% for technology in technologies.all %}
+                        <div class="card-text bg-white">
+                            <p class="formationp bg-default">{{ technology.name }} :
+                                {% for framework in technology.frameworks.all %}
+                                    <a href="{{ framework.frameworkurl }}"
+                                       target="_blank">{{ framework.frameworkname }}</a>
+                                {% endfor %}
+                            </p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="projects" class="card text-center projectintro" style="display: none">
+    <h2 class="projectsh2">These are my past and current projects:</h2>
+    <div class="row projectsrow">
+        <div class="col-lg-4 projectscol">
+            <h4 class="text-center">Games: </h4>
+            <div class="projectscrollmenu">
+                {% for gamejob in gamejobs %}
+                    <div class="projectcard">
+                        <div class="card card-secondary">
+                            <div class="card-header text-center">
+                                <span class="icon icon-xs w95-window-empty"></span>
+                                <h5><a href="{{ gamejob.url }}" target="_blank">{{ gamejob.title }}</a></h5>
+                            </div>
+                            <div class="card-body">
+                                <img class="projectimg" src="{{ gamejob.imageurl }}" alt="job-image">
+                                <ul class="projectdescription">
+                                    <li><span class="lead">Created by: </span>{{ gamejob.authors }}</li>
+                                    <li><span
+                                            class="lead">Language/Frameworks: </span>{{ gamejob.mainframework }}{{ gamejob.subframework }}
+                                    </li>
+                                    <li><span class="lead">Release Date: </span>{{ gamejob.date }} </li>
+                                    <li><span class="lead">Snippet: </span>{{ gamejob.description }} </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-lg-4 projectscol">
+            <h4 class="text-center">Web(Apps): </h4>
+            <div class="projectscrollmenu">
+                {% for webjob in webjobs.all %}
+                    <div class="projectcard">
+                        <div class="card card-secondary">
+                            <div class="card-header text-center">
+                                <span class="icon icon-xs w95-window-empty"></span>
+                                <h5><a href="{{ webjob.url }}" target="_blank">{{ webjob.title }}</a></h5>
+                            </div>
+                            <div class="card-body">
+                                <img class="projectimg" src="{{ webjob.imageurl }}" alt="job-image">
+                                <ul class="projectdescription">
+                                    <li><span class="lead">Created by: </span>{{ webjob.authors }}</li>
+                                    <li><span
+                                            class="lead">Language/Frameworks </span>{{ webjob.mainframework }}{{ webjob.subframework }}
+                                    </li>
+                                    <li><span class="lead">Release Date: </span>{{ webjob.date }} </li>
+                                    <li><span class="lead">Snippet: </span>{{ webjob.description }} </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-lg-4 projectscol ">
+            <h4 class="text-center">College Projects: </h4>
+            <div class="projectscrollmenu">
+                {% for schoolproject in schoolprojects.all %}
+                    <div class="projectcard">
+                        <div class="card card-secondary">
+                            <div class="card-header text-center">
+                                <span class="icon icon-xs w95-window-empty"></span>
+                                <h5 class="schoolprojectname"><a href="{{ schoolproject.url }}"
+                                                                 target="_blank">{{ schoolproject.title }}</a>
+                                </h5>
+                            </div>
+                            <div class="card-body">
+                                <img class="projectimg" src="{{ schoolproject.imageurl }}" alt="job-image">
+                                <ul class="projectdescription">
+                                    <li><span class="lead">Created by: </span>{{ schoolproject.authors }}</li>
+                                    <li><span
+                                            class="lead">Language/Frameworks: </span>{{ schoolproject.mainframework }} {{ schoolproject.subframework }}
+                                    </li>
+                                    <li><span class="lead">Release Date: </span>{{ schoolproject.date }} </li>
+                                    <li><span class="lead">Snippet: </span>{{ schoolproject.description }} </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="{% static 'jobs/jquery-3.6.0.min.js' %}"></script>
+<script src="{% static 'jobs/js/bootstrap.bundle.js' %}"></script>
+<script src="{% static 'jobs/js/w95.js' %}"></script>
+<script src="{% static 'jobs/js/site.js' %}"></script>
+<script>
+    function about(){
+        $('#projects').fadeOut();
+        $('#about').delay(500).fadeIn();
+    }
+    function portfolio(){
+        $('#about').fadeOut();
+        $('#projects').delay(500).fadeIn();
+    }
+</script>
+</body>
+</html>
